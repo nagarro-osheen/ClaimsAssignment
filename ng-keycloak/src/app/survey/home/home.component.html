@@ -1,0 +1,28 @@
+<div class="claims-survey-section">
+  Claims that need to be surveyed:
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Policy id</th>
+        <th scope="col">User name</th>
+        <th scope="col">Cost</th>
+        <th scope="col">Status</th>
+        <th scope="col">Actions</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let claim of latestClaims">
+        <th scope="row">{{claim.uuid}}</th>
+        <td>{{claim.policyNumber}}</td>
+        <td>{{claim.username}}</td>
+        <td>{{claim.amount}}</td>
+        <td>{{claim.status}}</td>
+        <td><button class="btn btn-primary" (click)="openDialog(claim)">Process</button></td>
+
+      </tr>
+
+    </tbody>
+  </table>
+</div>

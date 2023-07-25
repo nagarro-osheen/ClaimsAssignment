@@ -1,0 +1,17 @@
+<div class="card" >
+    <div class="card-header">
+        Amount which needs to be claimed in this claim:
+      </div>
+      <div class="card-body">
+        
+        <p class="card-text">
+            Claim for <b>{{this.data.claim.username}}</b>
+        </p>
+        <input type="number" [(ngModel)]="amount" /> 
+        <button class="btn btn-primary" (click)="processClaim()">Submit</button>
+      </div>
+</div>
+
+
+
+

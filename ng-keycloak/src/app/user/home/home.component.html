@@ -1,0 +1,54 @@
+<form [formGroup]="contractForm" (ngSubmit)="!(!contractForm.valid || !contractForm.dirty) && submitContractDetails()">
+
+  <div class="card col-8">
+    <div class="card-header">
+      Create a Claim
+    </div>
+    <div class="card-body">
+      <div class="form-floating mb-3">
+        <input formControlName="username" class="form-control" id="floatingInput" placeholder="User name:" readonly>
+        <label for="floatingInput">UserName</label>
+      </div>
+      <div class="form-floating">
+        <input formControlName="policyNumber" class="form-control" id="floatingPassword" placeholder="Policy Id:">
+        <label for="floatingPassword">Policy Id</label>
+      </div>
+      <br>
+      <button type="submit" [disabled]="!contractForm.dirty" class="btn btn-primary">Create Claim</button>
+    </div>
+
+  </div>
+
+
+
+</form>
+
+
+
+<div class="claims-section">All my claims:
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Policy id</th>
+        <th scope="col">User name</th>
+        <th scope="col">Cost</th>
+        <th scope="col">Status</th>
+
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let claim of latestClaims">
+        <th scope="row">{{claim.uuid}}</th>
+        <td>{{claim.policyNumber}}</td>
+        <td>{{claim.username}}</td>
+        <td>{{claim.amount}}</td>
+        <td>{{claim.status}}</td>
+
+
+      </tr>
+
+    </tbody>
+  </table>
+</div>

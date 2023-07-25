@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="header">
+    <div class="left-align">YCompany</div>
+    <div class="right-align">
+      <nav>
+        <a *ngIf="loggedIn && authService.isAdmin()" routerLink="/admin" routerLinkActive="active">Approve</a>
+        <a *ngIf="loggedIn && authService.userHasRoles(['survey'])" routerLink="/survey"
+          routerLinkActive="active">Survey</a>
+        <a *ngIf="loggedIn && authService.isUser()" routerLink="/user" routerLinkActive="active">Claims</a>
+        <button *ngIf="!loggedIn" (click)="login()">Login</button>
+        <button *ngIf="loggedIn" (click)="logout()">Logout</button>
+      </nav>
+    </div>
+  </div>
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+  <div class="footer">
+    <div>
+      <h4>About the company</h4>
+      <p>YCompany is one of the renowned name in Insurance providers in industry
+        providing auto insurance to customers in US. The company's product offerings
+        include auto, term and life insurance.YCompany servers more than 200 million customers across various
+        geographies.</p>
+    </div>
+  </div>
+</div>

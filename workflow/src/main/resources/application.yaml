@@ -1,0 +1,28 @@
+spring:
+
+  application.name: workflow
+  datasource.url: jdbc:h2:file:./camunda-h2-database
+  kafka:
+    bootstrap-servers: localhost:29092
+    consumer:
+#      group-id: newton
+#      auto-offset-reset: earliest
+#      fetch-max-wait: 1s
+#      fetch-min-size: 500000000
+      session-timeout-ms: 25000
+      max-poll-records: 100
+
+
+zipkin:
+  base-url : http://localhost:9411/
+camunda:
+  bpm:
+    webapp:
+      index-redirect-enabled: true
+camunda.bpm.admin-user:
+  id: admin
+  password: admin
+
+server:
+  port: 8081
+
