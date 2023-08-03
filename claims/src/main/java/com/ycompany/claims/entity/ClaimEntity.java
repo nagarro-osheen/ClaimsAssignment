@@ -10,7 +10,6 @@ import javax.persistence.Id;
 import java.math.BigDecimal;
 
 @Entity
-//@Table
 public class ClaimEntity {
 
 	@Id

@@ -1,6 +1,5 @@
 package com.ycompany.event;
 
-import com.ycompany.dto.ClaimApproveDto;
 import org.camunda.bpm.engine.TaskService;
 import org.camunda.bpm.engine.task.Task;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +26,7 @@ public class UserApprovedClaimConsumer {
             System.out.println("taskId is in status: " + userTask.getDelegationState());
 
             Map<String, Object> approvalDecision = new HashMap<>();
-            //TODO implement an object reciever for false scenario.
+            //TODO implement an object receiver for false scenario.
 
             approvalDecision.put("approve", true);
             taskService.complete(taskId, approvalDecision);
