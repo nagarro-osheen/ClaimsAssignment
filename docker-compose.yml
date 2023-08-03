@@ -22,3 +22,22 @@ services:
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+
+  kafka-ui:
+    container_name: kafka-ui
+    image: provectuslabs/kafka-ui:latest
+    ports:
+      - 8070:8080
+    depends_on:
+      - kafka
+    environment:
+      KAFKA_CLUSTERS_0_NAME: local
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:9092
+      KAFKA_CLUSTERS_0_METRICS_PORT: 9101
+      #KAFKA_CLUSTERS_0_SCHEMAREGISTRY: http://schema-registry:8081
+      #KAFKA_CLUSTERS_0_KAFKACONNECT_0_NAME: first
+      #KAFKA_CLUSTERS_0_KAFKACONNECT_0_ADDRESS: http://kafka-connect0:8083
+      #KAFKA_CLUSTERS_1_NAME: secondLocal
+      #KAFKA_CLUSTERS_1_BOOTSTRAPSERVERS: kafka1:29092
+      #KAFKA_CLUSTERS_1_METRICS_PORT: 9998
+      #KAFKA_CLUSTERS_1_SCHEMAREGISTRY: http://schemaregistry1:8085
