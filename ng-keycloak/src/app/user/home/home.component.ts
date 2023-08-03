@@ -46,8 +46,8 @@ export class HomeComponent implements OnInit {
         alert("created successfully with id: "+ data['uuid']);
         this.formSubmitted = true;
         this.contractForm.markAsPristine();
+        this.getLatestClaims();
       });
-
   }
 
 

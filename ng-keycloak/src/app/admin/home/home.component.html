@@ -26,3 +26,29 @@
     </tbody>
   </table>
 </div>
+
+<br><br>
+<div class="claims-admin-section">
+  Approved Claims:
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Policy id</th>
+        <th scope="col">User name</th>
+        <th scope="col">Cost</th>
+        <th scope="col">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let claim of approvedClaims">
+        <th scope="row">{{claim.uuid}}</th>
+        <td>{{claim.policyNumber}}</td>
+        <td>{{claim.username}}</td>
+        <td>{{claim.amount}}</td>
+        <td>{{claim.status}}</td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>

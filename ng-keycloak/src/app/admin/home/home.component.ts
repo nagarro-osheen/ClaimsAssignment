@@ -10,6 +10,7 @@ import { environment } from '../../../environments/environment';
 export class HomeComponent implements OnInit {
 
   latestClaims : any[];
+  approvedClaims : any[];
   constructor(private httpClient: HttpClient) { }
 
   getLatestClaims(){
@@ -18,14 +19,24 @@ export class HomeComponent implements OnInit {
       this.latestClaims = data;
     });
   }
+
   ngOnInit(): void {
     this.getLatestClaims();
+    this.getApprovedClaims();
   }
 
   approveClaim(taskId : string){
     this.httpClient.post(environment.claimsService + '/claim/approve/'+taskId, null)
     .subscribe((data:any)=>{
       this.getLatestClaims();
+      this.getApprovedClaims();
+    });
+  }
+
+  getApprovedClaims(){
+    this.httpClient.get(environment.claimsService + '/claim/status/APPROVED')
+    .subscribe((data:any)=>{
+      this.approvedClaims = data;
     });
   }
 

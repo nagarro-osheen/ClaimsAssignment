@@ -32,7 +32,7 @@ export class AuthService {
   }
 
   public logout() : void {
-    this.keycloakService.logout("http://localhost:4200/landing");
+    this.keycloakService.logout();
   }
 
   public redirectToProfile(): void {
