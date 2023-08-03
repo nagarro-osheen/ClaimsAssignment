@@ -3,22 +3,26 @@ Steps to run:
 1. Run keycloak as authorization server. 
 	- bin/kc.bat start-dev
 	- import realm from realm-export.json
-2. Docker should be running
+	- change default port in keycloak.conf as microrocks would be on 8080. Use http-port=8083
+2. Install Microcks
+	- Running without auth
+	- docker compose -f docker-compose-devmode.yml up -d
+	- http://localhost:8080/
+3. Docker should be running
 	- docker service start
-3. Start kafka, zookeeper
+4. Start kafka, kafka-ui, zookeeper, zipkin
 	- docker-compose up
-4. create a postgres database for claims microservice 
+	- zipkin: http://localhost:9411/
+	- kafka-ui: http://localhost:8070/
+5. create a postgres database for claims microservice 
 	- create database claims
-5. Start spring boot microservices 
+6. Start spring boot microservices 
 	- workflow
 	- claims
-6. start zipkin server for distributed tracing
+7. start zipkin server for distributed tracing
 	- for 
-7. start frontend
+8. start frontend
 	cd claims-microservices\ng-keycloak
 	npm install
 	npm run start
 	
-Extra:
-1. Setup Debver
-2. 
