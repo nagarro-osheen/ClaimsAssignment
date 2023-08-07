@@ -1,10 +1,10 @@
 node {
-  def mvnHome = tool 'MAVEN_HOME';
-  stage('SCM') {
-    checkout scm
-  }
+	def mvnHome = tool 'MAVEN_HOME';
+	stage('SCM') {
+		checkout scm
+	}
 	stage('Build') {
-		steps{
+		steps {
 			dir('claims'){
 				if (isUnix()) {
 					sh "pwd"
@@ -18,7 +18,7 @@ node {
 	}
     
 	stage('Quality Analysis') {
-		steps{
+		steps {
 			dir('claims'){
 				if (isUnix()) {
 					sh "pwd"
