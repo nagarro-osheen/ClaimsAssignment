@@ -6,7 +6,7 @@ import { KeycloakConfig } from 'keycloak-js';
 
 const keycloakConfig: KeycloakConfig = {
   url: 'http://localhost:8083',
-  realm: 'master1',
+  realm: 'claims',
   clientId: 'claims-ui-local',
 };
 
