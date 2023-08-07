@@ -5,7 +5,7 @@ node {
   stage('SonarQube Analysis') {
     def mvn = tool 'MAVEN_HOME';
     withSonarQubeEnv('SonarQube_Home') {
-      mvn clean verify sonar:sonar
+      mvn clean package sonar:sonar
     }
   }
 }
