@@ -17,13 +17,16 @@ Steps to run:
 	- kafka-ui: http://localhost:8070/
 	- prometheus: http://localhost:9091/
 	- grafana: http://localhost:3000/
-5. create a postgres database for claims microservice 
+5. Create a postgres database for claims microservice 
 	- create database claims
 6. Start spring boot microservices 
 	- workflow
 	- claims
-7. start frontend
-	cd claims-microservices\ng-keycloak
-	npm install
-	npm run start
+7. Start frontend
+	- cd claims-microservices\ng-keycloak
+	- npm install
+	- npm run start
+8. Start Sonar 
+	- In bin/windows: StartSonar.bat
+	- http://localhost:9000/
 	

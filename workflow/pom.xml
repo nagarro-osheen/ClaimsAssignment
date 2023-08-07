@@ -85,7 +85,22 @@
 <!--      <version>2.1.6.RELEASE</version>-->
     </dependency>
 
+    <dependency>
+      <groupId>org.sonarsource.scanner.maven</groupId>
+      <artifactId>sonar-maven-plugin</artifactId>
+      <version>3.2</version>
+    </dependency>
+
   </dependencies>
+
+  <profiles>
+    <profile>
+      <id>sonar</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+    </profile>
+  </profiles>
 
   <build>
     <plugins>
