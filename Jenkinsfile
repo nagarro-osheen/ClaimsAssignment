@@ -2,6 +2,13 @@ node {
   def mvnHome = tool 'MAVEN_HOME';
   stage('SCM') {
     checkout scm
+	  if (isUnix()) {
+         sh "cd claims"
+		 sh "pwd"
+      } else {
+         bat(/cd claims/)
+		 bat(/dir/)
+      }
   }
   stage('Build') {
       // Run the maven build
