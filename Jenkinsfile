@@ -19,12 +19,12 @@ node {
 		dir('claims'){
 			if (isUnix()) {
 				sh "pwd"
-				withSonarQubeEnv('sonarqube') {
+				withSonarQubeEnv('SonarQube_Home') {
         			sh "'${mvnHome}/bin/mvn' sonar:sonar -Dsonar.projectKey=ClaimsApplication -Dsonar.projectName=ClaimsApplication"
        			}
 			} else{
 				bat(/dir/)
-				withSonarQubeEnv('sonarqube') {
+				withSonarQubeEnv('SonarQube_Home') {
           			bat(/"${mvnHome}\bin\mvn" sonar:sonar -Dsonar.projectKey=ClaimsApplication -Dsonar.projectName=ClaimsApplication/)
        			}
 			}
