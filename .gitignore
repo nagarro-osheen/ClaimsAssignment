@@ -83,3 +83,7 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+prometheus/data
+
+sonarqube-10.1.0.73491
