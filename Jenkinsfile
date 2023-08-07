@@ -1,11 +1,22 @@
 node {
+  def mvnHome = tool 'MAVEN_HOME';
   stage('SCM') {
     checkout scm
   }
-  stage('SonarQube Analysis') {
-    def mvn = tool 'MAVEN_HOME';
-    withSonarQubeEnv('SonarQube_Home') {
-      mvn clean package sonar:sonar
-    }
-  }
+  stage('Build') {
+      // Run the maven build
+      if (isUnix()) {
+         sh "'${mvnHome}/bin/mvn' clean package"
+      } else {
+         bat(/"${mvnHome}\bin\mvn" clean package/)
+      }
+   }
+    stage('Quality Analysis') {
+      // Run the maven build
+      if (isUnix()) {
+         withSonarQubeEnv('sonarqube') {
+          sh "'${mvnHome}/bin/mvn' sonar:sonar -Dsonar.projectKey=ClaimsApplication -Dsonar.projectName=ClaimsApplication"
+        }
+      }
+   }
 }
